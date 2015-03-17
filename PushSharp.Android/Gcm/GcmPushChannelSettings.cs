@@ -9,7 +9,10 @@ namespace PushSharp.Android
 	public class GcmPushChannelSettings : IPushChannelSettings
 	{
 		private const string GCM_SEND_URL = "https://android.googleapis.com/gcm/send";
-
+		WebProxy obj=new WebProxy("proxy.cognizant.com:6050",true);
+		WebRequest rqst=WebRequest.Create(GCM_SEND_URL);
+		rqst.Proxy=obj;
+ 
 		public GcmPushChannelSettings(string senderAuthToken)
 		{
 			this.SenderAuthToken = senderAuthToken;
